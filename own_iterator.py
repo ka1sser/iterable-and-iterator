@@ -19,7 +19,21 @@ class Sentence:
         return self.words[current]
 
 
-my_sentence = Sentence("I am an iterator. Can you see me iterating?")
+# my_sentence = Sentence("I am an iterator. Can you see me iterating?")
 
-for word in my_sentence:
+# for word in my_sentence:
+#     print(word)
+
+
+#  Generator function
+def my_sentence(sentence):
+    words = sentence.split()
+    index = 0
+    while index < len(words):
+        yield words[index]
+        index += 1
+
+
+sentence = my_sentence("I'm a generator iterator and it shows.")
+for word in sentence:
     print(word)
